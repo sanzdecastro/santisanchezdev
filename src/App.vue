@@ -248,7 +248,7 @@ body {
   mb-2;
   &.title {
     @apply
-    mb-6;
+    mb-3;
   }
 }
 @media (min-width: 1024px) {
