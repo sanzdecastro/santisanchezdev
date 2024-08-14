@@ -141,6 +141,9 @@ export default {
     </div>
     
   </div>
+  <div class="button-wrapper">
+    <a class="button" href="mailto:sanzdecastro@gmail.com">Contact</a>
+  </div>
    
 
 </template>
@@ -153,6 +156,39 @@ body {
   fixed
   p-4
   overflow-hidden;
+}
+
+.button-wrapper {
+  font-family: 'Atlas';
+  @apply
+  bottom-0
+  left-0
+  w-full
+  p-2
+  fixed;
+  .button {
+    font-family: 'Atlas';
+    letter-spacing: -.1px;
+    font-size: clamp(18px, 3.6vw, 70px);
+    line-height: clamp(24px, 4vw, 70px);
+    @apply
+    bg-white
+    backdrop-blur-lg
+    bg-opacity-30
+    text-white
+    rounded-full
+    flex
+    justify-center
+    items-center
+    px-4
+    md:pt-4
+    py-2;
+
+    &:focus{
+      @apply
+      text-yellow-500;
+    }
+  }
 }
 
 .media-wrapper {
@@ -172,6 +208,7 @@ body {
     flex;
     video, img {
       @apply
+      h-56
       md:h-96
     }
   }
