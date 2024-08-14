@@ -1,5 +1,5 @@
 @import './base.css';
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,6 +12,8 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+  font-optical-sizing: auto;
+
 }
 
 @font-face {
@@ -21,6 +23,7 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+  font-optical-sizing: auto;
 }
 
 

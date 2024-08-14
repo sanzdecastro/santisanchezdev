@@ -7,7 +7,7 @@ export default {
   name: 'App',
   data() {
     return {
-      duplication: 21,
+      duplication: 30,
       duplicationMotion: 50
     }
   },
@@ -96,7 +96,13 @@ export default {
 
   <div class="intro-wrapper">
     <div class="intro grid md:grid-cols-12 grid-cols-5">
-      <div class="phrase title" v-for="n in duplication" >Digital-first Designer <br><span>&</span> Frontend Developer</div>
+      <div class="phrase" v-for="n in duplicationMotion" >Santi Sánchez</div>
+    </div>
+    <div class="intro grid md:grid-cols-12 grid-cols-5">
+      <div class="phrase" v-for="n in duplicationMotion" >Digital-first Designer</div>
+    </div>
+    <div class="intro grid md:grid-cols-12 grid-cols-5">
+      <div class="phrase" v-for="n in duplicationMotion" >Frontend Developer</div>
     </div>
     <div class="intro grid md:grid-cols-12 grid-cols-5">
       <div class="phrase" v-for="n in duplicationMotion" >Web design</div>
@@ -249,6 +255,13 @@ body {
   &.title {
     @apply
     mb-3;
+  }
+  span {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal; 
+    letter-spacing: -1px;
   }
 }
 @media (min-width: 1024px) {
