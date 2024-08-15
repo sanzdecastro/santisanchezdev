@@ -232,9 +232,15 @@ body {
         height: auto;
         width: auto;
     }
-    &:focus{
+    &:hover{
       @apply
       bg-opacity-100
+      text-black;
+    }
+    &:active {
+      @apply
+      bg-opacity-100
+      bg-yellow-500
       text-black;
     }
   }
