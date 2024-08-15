@@ -1,10 +1,27 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 import gsap from 'gsap';
-
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { FreeMode, Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/swiper-bundle.css';
 
 export default {
   name: 'App',
+  components: {
+      Swiper,
+      SwiperSlide,
+  },
+  setup() {
+      const onSwiper = (swiper) => {
+        console.log(swiper);
+      };
+      const onSlideChange = () => {
+        console.log('slide change');
+      };
+      return {
+        modules: [FreeMode, Autoplay, Pagination],
+      };
+    },
   data() {
     return {
       duplication: 30,
@@ -13,7 +30,7 @@ export default {
   },
   mounted() {
     this.animateIntro();
-    this.animationLine();
+    // this.animationLine();
   },
   methods: {
 
@@ -66,7 +83,7 @@ export default {
               animateIntro(nextIntro);
             }
           }
-        });
+        },"-=2");
       }
 
       // Iniciar la animación con el primer elemento .intro:not(.ended)
@@ -122,30 +139,52 @@ export default {
   </div>
 
   <div class="media-wrapper">
-    <div class="line-media">
-      <video muted autoplay loop>
-      <source src="./assets/media/counter.mp4" type="video/mp4">
-      </video>
-      <video muted autoplay loop>
-        <source src="./assets/media/24-36.mp4" type="video/mp4">
-      </video>
-      <video muted autoplay loop>
-        <source src="./assets/media/marina-circle.mp4" type="video/mp4">
-      </video>
-      <video muted autoplay loop>
-        <source src="./assets/media/old.mp4" type="video/mp4">
-      </video>
-      <video muted autoplay loop>
-        <source src="./assets/media/marina-colors.mp4" type="video/mp4">
-      </video>
-      <video muted autoplay loop>
-        <source src="./assets/media/marina_pointer.mp4" type="video/mp4">
-      </video>
-      <video muted autoplay loop>
-        <source src="./assets/media/intro-2436.mp4" type="video/mp4">
-      </video>
-    </div>
-    
+    <swiper
+      :modules="modules"
+      :slidesPerView="'auto'"
+      :space-between="0"
+      :free-mode="true"
+      :loop="true"
+      :speed="5000"
+      :on_free-mode-no-momentum-release="false"
+      :autoplay="{ delay: 1, disableOnInteraction: false }"
+    >
+      <swiper-slide>
+        <video playsinline muted autoplay loop>
+        <source src="./assets/media/counter.mp4" type="video/mp4">
+        </video>
+      </swiper-slide>
+      <swiper-slide>
+        <video playsinline muted autoplay loop>
+          <source src="./assets/media/24-36.mp4" type="video/mp4">
+        </video>
+      </swiper-slide>
+      <swiper-slide>
+        <video playsinline muted autoplay loop>
+          <source src="./assets/media/marina-circle.mp4" type="video/mp4">
+        </video>
+      </swiper-slide>
+      <swiper-slide>
+        <video playsinline muted autoplay loop>
+          <source src="./assets/media/old.mp4" type="video/mp4">
+        </video>
+      </swiper-slide>
+      <swiper-slide>
+        <video playsinline muted autoplay loop>
+          <source src="./assets/media/marina-colors.mp4" type="video/mp4">
+        </video>
+      </swiper-slide>
+      <swiper-slide>
+        <video playsinline muted autoplay loop>
+          <source src="./assets/media/marina_pointer.mp4" type="video/mp4">
+        </video>
+      </swiper-slide>
+      <swiper-slide>
+        <video playsinline muted autoplay loop>
+          <source src="./assets/media/intro-2436.mp4" type="video/mp4">
+        </video>
+      </swiper-slide>
+    </swiper>
   </div>
   <div class="button-wrapper">
     <a class="button" href="mailto:sanzdecastro@gmail.com">Contact</a>
@@ -192,7 +231,8 @@ body {
 
     &:focus{
       @apply
-      text-yellow-500;
+      bg-opacity-100
+      text-black;
     }
   }
 }
@@ -264,6 +304,29 @@ body {
     letter-spacing: -1px;
   }
 }
+
+.swiper-wrapper {
+  .swiper-slide {
+    
+    @apply
+    flex
+    justify-center
+    items-center;
+    video {
+      height: 80vw;
+      @media (min-width: 1024px) {
+        height: 30vw;
+      }
+      
+    }
+  }
+}
+.swiper-wrapper {
+  -webkit-transition-timing-function:linear!important; 
+  -o-transition-timing-function:linear!important;
+  transition-timing-function:linear!important; 
+}
+
 @media (min-width: 1024px) {
 
 }
