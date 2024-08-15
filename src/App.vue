@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { FreeMode, Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
+import soundFile from '@/assets/sounds/sound.mp3'; 
 
 export default {
   name: 'App',
@@ -24,16 +25,23 @@ export default {
     },
   data() {
     return {
+      audioSrc: soundFile,
       duplication: 30,
       duplicationMotion: 50
     }
   },
   mounted() {
     this.animateIntro();
-    // this.animationLine();
+    if (this.$refs.audioElm) {
+      this.$refs.audioElm.load();
+    }
   },
   methods: {
-
+    playSound(event) {
+      event.preventDefault();
+      this.$refs.audioElm.play();
+      window.location.href = event.target.getAttribute('href');
+    },
     animationLine() {
       let line = document.querySelector(".line-media")
 
@@ -187,7 +195,8 @@ export default {
     </swiper>
   </div>
   <div class="button-wrapper">
-    <a class="button" href="mailto:sanzdecastro@gmail.com">Contact</a>
+    <a @click="playSound" class="button" href="mailto:sanzdecastro@gmail.com">Contact</a>
+    <audio ref="audioElm" :src="audioSrc"></audio>
   </div>
    
 
