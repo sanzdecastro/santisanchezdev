@@ -214,8 +214,8 @@ body {
   .button {
     font-family: 'Atlas';
     letter-spacing: -.1px;
-    font-size: clamp(18px, 3.6vw, 70px);
-    line-height: clamp(24px, 4vw, 70px);
+    font-size: clamp(18px, 20px, 70px);
+    line-height: clamp(24px, 20px, 70px);
     @apply
     bg-white
     backdrop-blur-lg
@@ -226,9 +226,12 @@ body {
     justify-center
     items-center
     px-4
-    md:pt-4
+    md:pt-3
     py-2;
-
+    @media (min-width: 1024px) {
+        height: auto;
+        width: auto;
+    }
     &:focus{
       @apply
       bg-opacity-100
