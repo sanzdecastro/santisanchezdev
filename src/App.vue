@@ -271,7 +271,7 @@ body {
     &:active {
       @apply
       bg-opacity-100
-      bg-yellow-500
+      bg-white
       text-black;
     }
   }
