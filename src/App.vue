@@ -1,16 +1,23 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+import { mapState } from 'pinia';
+import { mapActions } from 'pinia';
+import { useFunctions } from '@/stores/functions.js'
 import gsap from 'gsap';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { FreeMode, Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import soundFile from '@/assets/sounds/sound.mp3'; 
 
+
 export default {
   name: 'App',
   components: {
       Swiper,
       SwiperSlide,
+  },
+  computed: {
+        ...mapState(useFunctions, ['info'])
   },
   setup() {
       const onSwiper = (swiper) => {
@@ -32,16 +39,22 @@ export default {
   },
   mounted() {
     this.animateIntro();
-    if (this.$refs.audioElm) {
-      this.$refs.audioElm.load();
-    }
+    // if (this.$refs.audioElm) {
+    //   this.$refs.audioElm.load();
+    // }
+  },
+  created() {
+
   },
   methods: {
+    ...mapActions(useFunctions, ['']),
+
     playSound(event) {
-      event.preventDefault();
+      // event.preventDefault();
       this.$refs.audioElm.play();
-      window.location.href = event.target.getAttribute('href');
+      // window.location.href = event.target.getAttribute('href');
     },
+
     animationLine() {
       let line = document.querySelector(".line-media")
 
@@ -119,7 +132,7 @@ export default {
 
   <!-- <RouterView /> -->
 
-  <div class="intro-wrapper">
+  <div class="intro-wrapper" :class="this.info ? 'blur-md' : ''">
     <div class="intro grid md:grid-cols-12 grid-cols-5">
       <div class="phrase" v-for="n in duplicationMotion" >Santi Sánchez</div>
     </div>
@@ -146,7 +159,7 @@ export default {
     </div>
   </div>
 
-  <div class="media-wrapper">
+  <div class="media-wrapper" :class="this.info ? 'blur-md' : ''">
     <swiper
       :modules="modules"
       :slidesPerView="'auto'"
@@ -194,12 +207,16 @@ export default {
       </swiper-slide>
     </swiper>
   </div>
-  <div class="button-wrapper">
-    <a @click="playSound" class="button" href="mailto:sanzdecastro@gmail.com">Contact</a>
-    <audio ref="audioElm" :src="audioSrc"></audio>
+  <div class="button-wrapper info">
+    <router-link class="button" to="/info"  @click="playSound();" >
+      Info
+    </router-link>
+    <!-- <a @click="playSound" class="button" href="mailto:sanzdecastro@gmail.com">Contact</a>-->
+    
   </div>
-   
+  <audio ref="audioElm" :src="audioSrc"></audio> 
 
+  <router-view></router-view>
 </template>
 
 <style>
@@ -219,13 +236,18 @@ body {
   left-0
   w-full
   p-2
+  z-50
   fixed;
-  .button {
+  
+}
+
+.button {
     font-family: 'Atlas';
     letter-spacing: -.1px;
     font-size: clamp(18px, 20px, 70px);
     line-height: clamp(24px, 20px, 70px);
     @apply
+   
     bg-white
     backdrop-blur-lg
     bg-opacity-30
@@ -253,7 +275,6 @@ body {
       text-black;
     }
   }
-}
 
 .media-wrapper {
   width: 100vw;
