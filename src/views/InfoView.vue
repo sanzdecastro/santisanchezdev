@@ -43,8 +43,9 @@ export default {
       </div>
       
       <div class="flex flex-col gap-2">
-        <a class="button" href="mailto:sanzdecastro@gmail.com">Email me</a>
-        <router-link class="button" to="/" @click="playSound();">
+        <a class="button" href="mailto:sanzdecastro@gmail.com">Email</a>
+        <a class="button" href="https://www.instagram.com/santisanchez.dev/">Instagram</a>
+        <router-link class="button secondary" to="/" @click="playSound();">
         Back</router-link>
         <audio ref="audioElm" :src="audioSrc"></audio> 
       </div>

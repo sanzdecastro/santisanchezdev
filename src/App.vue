@@ -274,6 +274,14 @@ body {
       bg-white
       text-black;
     }
+    &.secondary {
+      @apply
+      text-gray-400
+      border-gray-400
+      border
+      border-solid
+      bg-transparent;
+    }
   }
 
 .media-wrapper {
