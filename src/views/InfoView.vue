@@ -74,8 +74,8 @@ export default {
     justify-between
     flex-col;
     p.desc {
-      font-size: clamp(18px, 20px, 70px);
-      line-height: clamp(24px, 20px, 70px);
+      font-size: clamp(18px, 3vw, 70px);
+      line-height: clamp(24px, 3.6, 70px);
     }
   }
 
