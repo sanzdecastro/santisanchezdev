@@ -4,11 +4,14 @@ import { mapActions } from 'pinia';
 import { useFunctions } from '@/stores/functions.js'
 
 import soundFile from '@/assets/sounds/sound.mp3'; 
+import soundMail from '@/assets/sounds/mail.mp3'; 
+
 export default {
   name: 'info',
   data() {
     return {
       audioSrc: soundFile,
+      audioMail: soundMail,
     }
   },
   mounted() {
@@ -27,6 +30,11 @@ export default {
       this.$refs.audioElm.play();
       // window.location.href = event.target.getAttribute('href');
     },
+    playMail(event) {
+      event.preventDefault();
+      this.$refs.audioElmMail.play();
+      window.location.href = event.target.getAttribute('href');
+    },
   },
 }
 </script>
@@ -43,8 +51,9 @@ export default {
       </div>
       
       <div class="flex flex-col gap-2">
-        <a class="button" href="mailto:sanzdecastro@gmail.com">Email</a>
-        <a class="button" href="https://www.instagram.com/santisanchez.dev/">Instagram</a>
+        <a class="button" href="mailto:sanzdecastro@gmail.com" @click="playMail($event);">Email</a>
+        <audio ref="audioElmMail" :src="audioMail"></audio> 
+        <a class="button" target="_blank" href="https://www.instagram.com/santisanchez.dev/">Instagram</a>
         <router-link class="button secondary" to="/" @click="playSound();">
         Back</router-link>
         <audio ref="audioElm" :src="audioSrc"></audio> 
