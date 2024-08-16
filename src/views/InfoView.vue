@@ -64,8 +64,10 @@ export default {
   left-0
   p-3
   pb-20
+  md:pb-6
   text-white
   bg-black;
+  
   .info {
     @apply
     
@@ -73,9 +75,19 @@ export default {
     flex
     justify-between
     flex-col;
+    p {
+      @apply
+      md:pb-1;
+      @media (min-width: 1024px) {
+        font-size: clamp(18px, 20px, 70px);
+        line-height: clamp(24px, 20px, 70px);
+      }
+    }
     p.desc {
       font-size: clamp(18px, 3vw, 70px);
-      line-height: clamp(24px, 3.6, 70px);
+      line-height: clamp(24px, 3.6vw, 70px);
+      @apply
+      md:pb-3;
     }
   }
 
