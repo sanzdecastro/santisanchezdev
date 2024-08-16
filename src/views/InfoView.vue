@@ -57,13 +57,13 @@ export default {
 
 .info-wrapper {
   width: 100vw;
-  height: 50vh;
+  height: 70dvh;
   @apply
   rounded-xl
   absolute 
   left-0
   p-3
-  pb-7
+  pb-20
   text-white
   bg-black;
   .info {
