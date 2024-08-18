@@ -143,10 +143,10 @@ export default {
       <div class="phrase" v-for="n in duplicationMotion" >Frontend Developer</div>
     </div>
     <div class="intro grid md:grid-cols-12 grid-cols-5">
-      <div class="phrase" v-for="n in duplicationMotion" >Web design</div>
+      <div class="phrase" v-for="n in duplicationMotion" >Web Design</div>
     </div>
     <div class="intro grid md:grid-cols-12 grid-cols-5">
-      <div class="phrase" v-for="n in duplicationMotion" >Web development</div>
+      <div class="phrase" v-for="n in duplicationMotion" >Web Development</div>
     </div>
     <div class="intro grid md:grid-cols-12 grid-cols-5">
       <div class="phrase" v-for="n in duplicationMotion" >Motion Graphics</div>

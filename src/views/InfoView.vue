@@ -44,8 +44,8 @@ export default {
     <div class="info">
       <div>
         <p class="desc mt-3 mb-3">Detail-oriented Frontend Developer and Digital Designer
-        with over 9 years of experience in web development,
-        UI/UX design, and motion graphics.</p>
+        with over 9 years of experience in Web Development,
+        UI/UX Design, and Motion Graphics.</p>
         <p class="mb-1">🌐 Web Design and Development</p>
         <p>👾 Video Editing and Motion Graphics</p>
       </div>
@@ -91,6 +91,7 @@ export default {
       @media (min-width: 1024px) {
         font-size: clamp(18px, 20px, 70px);
         line-height: clamp(24px, 20px, 70px);
+        max-width: 80%;
       }
     }
     p.desc {
