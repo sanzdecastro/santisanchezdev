@@ -187,6 +187,11 @@ export default {
       </swiper-slide>
       <swiper-slide>
         <video playsinline muted autoplay loop>
+          <source src="./assets/media/lorenzo_switch.mp4" type="video/mp4">
+        </video>
+      </swiper-slide>
+      <swiper-slide>
+        <video playsinline muted autoplay loop>
           <source src="./assets/media/old.mp4" type="video/mp4">
         </video>
       </swiper-slide>
