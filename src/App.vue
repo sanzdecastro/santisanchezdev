@@ -177,6 +177,11 @@ export default {
       </swiper-slide>
       <swiper-slide>
         <video playsinline muted autoplay loop>
+          <source src="./assets/media/pol.mp4" type="video/mp4">
+        </video>
+      </swiper-slide>
+      <swiper-slide>
+        <video playsinline muted autoplay loop>
           <source src="./assets/media/24-36.mp4" type="video/mp4">
         </video>
       </swiper-slide>
